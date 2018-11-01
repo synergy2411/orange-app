@@ -1,0 +1,49 @@
+
+<!-- {{users | json}} -->
+
+<div class="container">
+<ul class="list-unstyled">
+<li class="well" *ngFor="let user of users; index as i; first as isFirst; odd as isOdd">
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            {{ i }}
+            <br>
+            is this first ? {{ isFirst }}
+            <br>
+            is this Odd? {{ isOdd }}
+            <app-user-img 
+                [user]="user"
+                (childEvent)="moreInfo($event)"></app-user-img>
+            <!-- <img [src]="user.image" 
+                class="img-responsive img-circle">
+            <button class="btn btn-sm btn-info" 
+                (click)="moreInfo(user)">More Info</button> -->
+        </div>
+        <input type="text" [(ngModel)]="str"><br>
+        <div class="col-md-9 col-sm-9 col-xs-9">
+            <app-user-info [user]="user" [str]="str">
+                <p class="company">Company : {{ user.company }}</p>
+                <p class="votes">Vote : {{ user.vote }} </p>
+            </app-user-info>
+            <!-- <h1>{{ user.firstName }} {{ user.lastName}}</h1>
+            <p>Date of Birth : <span [innerHTML]="user.dob"></span></p>
+            <p>Income : {{ user.income }}</p>
+            <em>Total Votes : {{ user.vote }}
+                <input type="number" 
+                    [value]="user.vote"
+                    (change)="user.vote = $event.target.value">
+                <input type="number" [(ngModel)]="user.vote">
+            </em> -->
+        </div>  
+    </div>
+</li>
+</ul>
+
+</div>
+
+<!-- <div [ngSwitch]="'bar'">
+    <div *ngSwitchCase="'foo'">Foo</div>
+    <div *ngSwitchCase="'bar'">Bar</div>
+    <div *ngSwitchCase="'bas'">Bas</div>
+    <div *ngSwitchDefault>Bam</div>
+</div> -->

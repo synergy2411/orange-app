@@ -1,0 +1,44 @@
+<form class="well" [formGroup]="registerForm">
+  <h1 class="text-danger text-center">Register Form</h1>
+  <div class="form-group">
+    <label for="username">Username : </label>
+    <input type="email" 
+      name="username" 
+      class="form-control"
+      [formControl]="username">
+      <div [hidden]="username.valid || username.untouched">
+        Some Problem with username...
+        <div [hidden]="!username.hasError('required')">
+          <p class="text-danger"> Username is mandatory field!</p>
+        </div>
+        <div [hidden]="!username.hasError('email')">
+          <p class="text-danger"> Email should in format e.g xyz@test.com!</p>
+        </div>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password :</label>
+    <input type="password" 
+      name="password" 
+      class="form-control"
+      [formControl]="password">
+    <div [hidden]="password.untouched || password.valid">
+      Some Problem with Password...
+      <div [hidden]="!password.hasError('required')">
+        <p class="text-danger"> Password is mandatory field!</p>
+      </div>
+      <div [hidden]="!password.hasError('minlength')">
+        <p class="text-danger"> Password should be 6 characters long!</p>
+      </div>
+      <div [hidden]="!password.hasError('needExclamation')">
+        <p class="text-danger"> Password must have exclamation mark!</p>
+      </div>
+    </div>
+  </div>
+  
+  <button  class="btn btn-success btn-block" 
+    (click)="onRegister()" 
+    [disabled]="!registerForm.valid">
+    Register
+  </button>
+</form>

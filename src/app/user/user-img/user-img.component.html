@@ -1,0 +1,7 @@
+<img [src]="user.image" class="img-responsive img-circle">
+<hr>
+<button class="btn btn-sm btn-info" 
+  (click)="onMoreInfo(user)">More Info</button>
+<button class="btn btn-sm" (click)="increase()">Increase</button>
+<br>
+Counter in User Img : {{ dataService.counter }}

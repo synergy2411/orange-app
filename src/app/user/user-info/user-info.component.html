@@ -1,0 +1,34 @@
+<h1 app-highlight [myColor]= "'yellow'">
+  {{ user.firstName  | uppercase }} {{ user.lastName | uppercase}}
+</h1>
+
+<!-- <p [ngClass]="['border', 'size']">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
+<!-- <p [ngClass]="myClasses">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
+<p [ngClass]="myClasses">
+  Date of Birth : <span [innerHTML]="user.dob | date : 'MMM/dd/yyyy'"></span></p>
+
+<ng-content select=".company"></ng-content>
+<p *ngIf="user.isWorking===true">
+  Income : {{ user.income | currency : 'EUR'}}</p>
+<p *appUnless="user.isWorking"> {{user.firstName }} is not working! </p>
+
+<!-- <ng-template [appUnless]="user.isWorking">
+  <p>Income : {{ user.income }}</p>
+</ng-template> -->
+
+<ng-content select=".votes"></ng-content>
+<em>Total Votes : {{ user.vote }}
+  <input type="number" [value]="user.vote" (change)="user.vote = $event.target.value">
+  <input type="number" [(ngModel)]="user.vote">
+</em>
+<p>String : {{ str }}</p>
+
+<ng-template #elseTemplate>
+  <p>{{ user.firstName }} is not working now!</p>
+</ng-template>
+
+<button class="btn btn-default" (click)="toggleClasses()">
+  Toggle Class</button>
+<button class="btn btn-default" (click)="increase()">Increase</button>
+<br>
+Counter in User Img : {{ dataService.counter }}

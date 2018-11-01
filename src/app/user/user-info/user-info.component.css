@@ -1,0 +1,11 @@
+.border { 
+    border-bottom: 2px green solid;
+}
+
+.size {
+    font-size: 1.2em;
+}
+
+h1{
+    color : greenyellow;
+}

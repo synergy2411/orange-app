@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Product Component Loaded!</h1>
+  <div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3">
+      <ul class="list-unstyled">
+        <li>
+          <a 
+            [queryParams]="{'name' : 'Foo'}"
+            [routerLink]="['overview', 3, 'iPhone X']">Overview</a></li>
+        <li><a [routerLink]="['spec']">Specification</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+    
+  </div>
+</div>
